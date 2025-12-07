@@ -1,0 +1,23 @@
+.menueButton{
+    width:100%;
+    font-size: 2vh;
+}
+
+div.area{
+    margin:5px;
+}
+
+div.area.login{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-evenly; 
+    height: 5vh;
+}
+
+div.area.controls{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-evenly; 
+    height: 5vh;
+}
+

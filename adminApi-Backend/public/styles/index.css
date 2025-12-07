@@ -1,0 +1,44 @@
+.menueButton{
+    width:100%;
+    font-size: 2vh;
+}
+
+div.area{
+    margin:5px;
+}
+
+div.area.login{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-evenly; 
+    height: 5vh;
+}
+
+div.area.controls{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-evenly; 
+    height: 5vh;
+}
+
+div.area.output{
+    background-color: black;
+    height: 70vh;
+    font-family: 'Courier New', Courier, monospace;
+    overflow:scroll;
+}
+
+p.output.row{
+    margin: 0px;
+    padding: 5px 10px 2px 10px;
+}
+
+p.output.row > .message{
+    color: chartreuse;
+    font-size: 2vh;
+}
+p.output.row > .timestamp{
+    color: rgb(255, 128, 0);
+    font-weight: bold;
+    font-size: 2vh;
+}

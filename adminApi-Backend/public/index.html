@@ -1,0 +1,25 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Meine API Website</title>
+  <link rel="stylesheet" href="./styles/index.css">
+  <script src="scripts/main.js" type="module"></script>
+</head>
+<body>
+    <h1>Wake API</h1>
+    <p>Hier kannst du Geräte aufwecken!</p>
+    <div class="area controls">
+        <button class="menueButton" onclick="doReadWakeStatusAlien()">Status Alien</button>
+        <button class="menueButton" onclick="doWakeAlien()">Wake Alien</button>
+        <button class="menueButton" onclick="doReadWakeStatusNas()">Status NAS</button>
+        <button class="menueButton" onclick="doWakeNas()">Wake NAS</button>
+    </div>
+
+    <div class="area output">
+        <p class="output row"><span class="timestamp">[11.12:13]</span><span class="message">das ist testtext</span></p>
+    </div>
+
+</body>
+</html>
