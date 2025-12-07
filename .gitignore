@@ -1,0 +1,12 @@
+# Ignore environment variable files
+.env
+# Ignore compiled JavaScript files
+_buildOutput/
+node_modules/
+*.log
+*.tsbuildinfo
+# Only push VSCode Files of interest
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
