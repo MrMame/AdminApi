@@ -1,6 +1,8 @@
 # Ignore environment variable files
 .env
 # Ignore compiled JavaScript files
+dist/
+output/
 _buildOutput/
 node_modules/
 *.log
