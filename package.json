@@ -1,4 +1,10 @@
 {
+  "name": "adminapi",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "target": "ES2020",
+  "module": "CommonJS",
   "scripts": {
     "build": "node _build/scripts/build.js"
   }
