@@ -1,0 +1,11 @@
+{
+  
+  "name": "adminapi-documentations",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "",
+  "scripts": {
+    "build": "node _build/scripts/build.js",
+    "clean": "node _build/scripts/clean.js"
+  }
+}
