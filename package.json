@@ -14,6 +14,6 @@
     "clean": "node _build/scripts/clean.js",
     "monorepo:build":  "npm run monorepo:clean && npm run build -ws && npm run monorepo:bundle",
     "monorepo:clean":  "npm run clean -ws",
-    "monorepo:bundle": "node _build/scripts/build.js"
+    "monorepo:bundle": "node _build/scripts/bundle.js"
   }
 }

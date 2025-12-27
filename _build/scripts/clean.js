@@ -2,7 +2,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-const outputFolder = '_buildOutput';
+const outputFolder = '_monorepo-output';
 
 async function clean() {
   const distPath = path.resolve("", outputFolder);   
