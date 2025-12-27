@@ -1,0 +1,11 @@
+{
+  
+  "name": "adminapi-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "",
+  "scripts": {
+    "build": "",
+    "clean": "node _build/scripts/clean.js"
+  }
+}

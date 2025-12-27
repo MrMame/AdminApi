@@ -10,9 +10,9 @@ const rootWorkspace = rootBuild;//path.join(rootBuild, "..")
 const outputDir = path.join(rootWorkspace, buildOutputFolderName);
 
 
-const NAME_FRONTEND          = "adminApi-Frontend";
-const NAME_BACKEND           = "adminApi-Backend";
-const NAME_DOCUMENTATIONS    = "adminApi-Documentations";
+const NAME_FRONTEND          = "Frontend";
+const NAME_BACKEND           = "Backend";
+const NAME_DOCUMENTATIONS    = "Documentations";
 
 const BUILD_LOGPATH_MAIN                = `Main`;
 
@@ -25,7 +25,7 @@ const DIRNAME_BACKEND_BUILDOUT          = path.join(DIRNAME_BACKEND, buildOutput
 const DIRNAME_DOCUMENTATIONS_BUILDOUT   = path.join(DIRNAME_DOCUMENTATIONS, buildOutputFolderName);
 
 // InfoOutput
-PrintBuildLog(BUILD_LOGPATH_MAIN,`### Beginne mit Project-Build ...`);
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`### Beginne mit Project-Build ...`);
 PrintBuildLog(BUILD_LOGPATH_MAIN,`[SubProjekts Path]`);
 PrintBuildLog(BUILD_LOGPATH_MAIN,`   DIRNAME_FRONTEND               ='${DIRNAME_FRONTEND}`);
 PrintBuildLog(BUILD_LOGPATH_MAIN,`   DIRNAME_BACKEND                ='${DIRNAME_BACKEND}`);
@@ -42,21 +42,18 @@ rmSync(outputDir, { recursive: true, force: true });
 mkdirSync(outputDir);
 
 // Build subprojects
-PrintBuildLog(BUILD_LOGPATH_MAIN,`### Building SubProjects ...`); 
-PrintBuildLog(BUILD_LOGPATH_MAIN,`Build START -> '${DIRNAME_BACKEND}' ...`);
-execSync("npm run build", { cwd: DIRNAME_BACKEND,           stdio: "inherit" });
-PrintBuildLog(BUILD_LOGPATH_MAIN,`Build FINISHED -> '${DIRNAME_BACKEND}' ...`);
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`### Building SubProjects ...`); 
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`Build START -> '${DIRNAME_BACKEND}' ...`);
+// execSync("npm run build", { cwd: DIRNAME_BACKEND,           stdio: "inherit" });
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`Build FINISHED -> '${DIRNAME_BACKEND}' ...`);
 
-PrintBuildLog(BUILD_LOGPATH_MAIN,`Build START -> '${DIRNAME_FRONTEND}' ...`);
-execSync("npm run build", { cwd: DIRNAME_FRONTEND,          stdio: "inherit" });
-PrintBuildLog(BUILD_LOGPATH_MAIN,`Build FINISHED -> '${DIRNAME_FRONTEND}' ...`);
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`Build START -> '${DIRNAME_FRONTEND}' ...`);
+// execSync("npm run build", { cwd: DIRNAME_FRONTEND,          stdio: "inherit" });
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`Build FINISHED -> '${DIRNAME_FRONTEND}' ...`);
 
-PrintBuildLog(BUILD_LOGPATH_MAIN,`Build START -> '${DIRNAME_DOCUMENTATIONS}' ...`);
-execSync("npm run build", { cwd: DIRNAME_DOCUMENTATIONS,    stdio: "inherit" });
-PrintBuildLog(BUILD_LOGPATH_MAIN,`Build FINISHED -> '${DIRNAME_DOCUMENTATIONS}' ...`);
-
-
-
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`Build START -> '${DIRNAME_DOCUMENTATIONS}' ...`);
+// execSync("npm run build", { cwd: DIRNAME_DOCUMENTATIONS,    stdio: "inherit" });
+// PrintBuildLog(BUILD_LOGPATH_MAIN,`Build FINISHED -> '${DIRNAME_DOCUMENTATIONS}' ...`);
 
 
 
