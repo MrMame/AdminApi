@@ -6,6 +6,10 @@
   "target": "ES2020",
   "module": "CommonJS",
   "scripts": {
-    "build": "node _build/scripts/build.js"
+    "build": "npm run monorepo:build",
+    "clean": "node _build/scripts/clean.js",
+    "monorepo:build":  "npm run monorepo:clean && npm run build -ws && npm run monorepo:bundle",
+    "monorepo:clean":  "npm run clean -ws",
+    "monorepo:bundle": "node _build/scripts/bundle.js"
   }
 }
