@@ -7,14 +7,14 @@
   "target": "ES2020",
   "module": "CommonJS",
   "scripts": {
-    "run": "node dist/server.js",
+    "run": "node _buildOutput/server.js",
     "test": "node --test",
     "build": "node _build/scripts/build.js && tsc ",
     "clean": "node _build/scripts/clean.js",
     "Relase:Major": "npm version major --no-git-tag-version",
     "Relase:Minor": "npm version minor --no-git-tag-version",
     "Relase:Patch": "npm version patch --no-git-tag-version",
-    "Run:ServerAuth": "node dist/serverAuth.js",
+    "Run:ServerAuth": "node _buildOutput/serverAuth.js",
     "prerun": "npm run build",
     "prebuild": "npm run clean"
   },

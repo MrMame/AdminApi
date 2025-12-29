@@ -3,7 +3,7 @@
     "target": "ES2020",
     "module": "Node16",
     "moduleResolution": "node16",
-    "outDir": "./dist",
+    "outDir": "./_buildOutput",
     "rootDir": "./src",     // Wurzelverzeichnis der Quellcodedateien
     // "baseUrl": "./src",     // Basisverzeichnis für absolute Importe
     "sourceMap": true,

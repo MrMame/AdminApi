@@ -4,6 +4,7 @@
 dist/
 output/
 _buildOutput/
+_monorepo-output/
 node_modules/
 *.log
 *.tsbuildinfo
