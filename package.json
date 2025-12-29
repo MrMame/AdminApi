@@ -5,6 +5,10 @@
   "type": "module",
   "target": "ES2020",
   "module": "CommonJS",
+  "private": true,
+  "workspaces": [
+    "projects/*"
+  ],
   "scripts": {
     "build": "npm run monorepo:build",
     "clean": "node _build/scripts/clean.js",
