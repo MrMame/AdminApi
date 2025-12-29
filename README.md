@@ -30,7 +30,7 @@ Rename the template that can be found in .env.example.
 
 ```bash 
 # Create new .env.dev File from template
-cp ./projects/backend/.env.example ./projects/backend/.env.dev
+cp ./projects/backend/config/.env.example ./projects/backend/config/.env.dev
 ```
 
 Start the backend using the .env.dev file by running the VSCode launch.json config 'Debug Server'.
