@@ -16,9 +16,13 @@
             "request": "launch",
             "program": "${workspaceFolder}/_monorepo-output/backend/server.js",
             "preLaunchTask": "npm: build",
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/_monorepo-output/backend/",
             "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
+            "internalConsoleOptions": "neverOpen",
+            "env": {
+                "NODE_ENV": "dev"
+            }
+
         },
         {
             "name": "Debug ServerAuth",
@@ -26,9 +30,12 @@
             "request": "launch",
             "program": "${workspaceFolder}/_monorepo-output/backend/serverAuth.js",
             "preLaunchTask": "npm: build",
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/_monorepo-output/backend/",
             "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
+            "internalConsoleOptions": "neverOpen",
+                        "env": {
+                "NODE_ENV": "dev"
+            }
         },
         {
             "name": "Chrome-localhost:3000",

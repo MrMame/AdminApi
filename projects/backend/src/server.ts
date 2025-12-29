@@ -1,14 +1,12 @@
 // wake-api.js
 // Minimaler Express-Server, der Wake-on-LAN Magic Packets verschickt.
-import LinuxNetworkService from "./services/network/LinuxNetworkService.js"
+import "./config/env.js";         // Loads the .env File defined by EnvironmentVariable NODE_ENV
+import LinuxNetworkService from "./services/network/LinuxNetworkService.js";
 import express from 'express';
 
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { expressjwt } from 'express-jwt';
-import dotenv from 'dotenv';
-
-import dgram from 'dgram';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import ArpScanner from "./provider/system/network/ArpScanner.js";
@@ -28,8 +26,6 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 
-
-dotenv.config();
 const SECRET = process.env.JWT_SECRET || process.env.JWT_SECREAT_FALLBACK;
 const PORT = process.env.PORT || 3000;
 if(SECRET===undefined)throw new Error("CRITICAL - No Web Token Secret provided.")

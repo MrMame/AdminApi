@@ -4,6 +4,14 @@ import path from 'path';
 
 const buildOutputFolderName = `_buildOutput`;
 
+async function copyToTarget(src,target){
+ try {
+    await fs.cp(src,target , { recursive: true });
+    console.log(`📦 '${src}' nach ${target} kopiert`);
+  } catch (err) {
+    console.error(`⚠️ Fehler beim Kopieren von ${src}:`, err);
+  }
+}
 
 async function cleanAndPrepareDist() {
   const distPath = path.resolve("", buildOutputFolderName);
@@ -24,13 +32,13 @@ async function cleanAndPrepareDist() {
 
   // Beispiel: public kopieren
   const publicPath = path.resolve("", 'public');
+  const configPath = path.resolve("", 'config');
   const distPublicTargetPath = path.resolve(distPath, 'public');
-  try {
-    await fs.cp(publicPath,distPublicTargetPath , { recursive: true });
-    console.log('📦 public nach outputfolder kopiert');
-  } catch (err) {
-    console.error('⚠️ Fehler beim Kopieren von public:', err);
-  }
+  const distConfigTargetPath = path.resolve(distPath, 'config');
+  
+  await copyToTarget(publicPath,distPublicTargetPath);
+  await copyToTarget(configPath,distConfigTargetPath);
+
 }
 
 cleanAndPrepareDist();

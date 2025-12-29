@@ -34,6 +34,7 @@
 */
 
 
+import "./config/env.js";         // Loads the .env File defined by EnvironmentVariable NODE_ENV
 
 import express from 'express';
 import jwt from 'jsonwebtoken';
