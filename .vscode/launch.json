@@ -11,7 +11,7 @@
             "type": "node-terminal"
         },
         {
-            "name": "Debug Server",
+            "name": "Debug DEV-Server ",
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/_monorepo-output/backend/server.js",
@@ -25,7 +25,7 @@
 
         },
         {
-            "name": "Debug ServerAuth",
+            "name": "Debug DEV-ServerAuth",
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/_monorepo-output/backend/serverAuth.js",

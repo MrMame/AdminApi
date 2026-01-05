@@ -1,6 +1,6 @@
 // wake-api.js
 // Minimaler Express-Server, der Wake-on-LAN Magic Packets verschickt.
-import "./config/env.js";         // Loads the .env File defined by EnvironmentVariable NODE_ENV
+import {EnvLoadingService} from "./services/config/EnvLoadingService.js";         // Loads the .env File defined by EnvironmentVariable NODE_ENV
 import LinuxNetworkService from "./services/network/LinuxNetworkService.js";
 import express from 'express';
 
@@ -20,7 +20,8 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
+// Load .env Cofigfiles
+EnvLoadingService.loadEnvironmentConfigFile();
 
 
 
@@ -38,7 +39,7 @@ const requireAuth = expressjwt({
 // Beispielhafte Benutzer-Datenbank
 let userName = process.env.USR_EXAMPLE_NAME;
 let userPass = process.env.USR_EXAMPLE_PASSWORD;
-let userSalt = process.env.USR_EXAMPLE_HASHSALT;
+let userSalt = Number.parseInt(process.env.USR_EXAMPLE_HASHSALT?process.env.USR_EXAMPLE_HASHSALT:"");
 if(userPass===undefined||userName===undefined||userSalt===undefined)throw new Error("No ExampleUser Credentials provided");
 const users = [
   { username: userName, passwordHash: bcrypt.hashSync(userPass, userSalt)},
