@@ -11,6 +11,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import ArpScanner from "./provider/system/network/ArpScanner.js";
 import WakeOnLanDeviceInfo from "./models/network/WakeOnLanDeviceInfo.js";
+import {WolConfigReaderService} from "./services/config/WolConfigReaderService.js"
 
 // Dependencies INIT
 const __linuxNetworkService:LinuxNetworkService = new LinuxNetworkService(new ArpScanner);
@@ -22,9 +23,9 @@ const __dirname = path.dirname(__filename);
 
 // Load .env Cofigfiles
 EnvLoadingService.loadEnvironmentConfigFile();
+const __wolDeviceConfigs:WakeOnLanDeviceInfo[] = WolConfigReaderService.GetWolConfigFromEnv();
 
-
-
+// Middleware Config
 app.use(express.json());
 
 const SECRET = process.env.JWT_SECRET || process.env.JWT_SECREAT_FALLBACK;
@@ -61,20 +62,36 @@ app.post('/login', async (req, res) => {
 });
 
 
+__wolDeviceConfigs.forEach((wolDevInfo,idx)=>{
+    app.get(`/wake/status/${wolDevInfo.name}`, requireAuth, async (req, res) => {
+    const targetMac  = wolDevInfo.mac  ??'';
+    const targetName = wolDevInfo.name ??'';
+    let statusText = await __linuxNetworkService.ReadNetworkStatus(targetName, targetMac)
+    res.send(statusText);
+  });
+  app.get(`/wake/${wolDevInfo.name}`, requireAuth, async (req, res) => {
+    let targetMac = wolDevInfo.mac  ??'';
+    let wolBoradcastIP = wolDevInfo.broadcast  ??'';
+    let wolPort = Number(wolDevInfo.port)  ?? 9;
+    let wolInfo = new WakeOnLanDeviceInfo(targetMac, wolBoradcastIP, wolPort);
+    __linuxNetworkService.SendMagicPackage(wolInfo);
+  });
+})
 
-app.get('/wake/status/alien', requireAuth, async (req, res) => {
-  const targetMac  = process.env.NETWORK_ALIEN_MAC  ??'';
-  const targetName = process.env.NETWORK_ALIEN_NAME ??'';
-  let statusText = await __linuxNetworkService.ReadNetworkStatus(targetName, targetMac)
-  res.send(statusText);
-});
 
-app.get('/wake/status/nas' , requireAuth, async (req, res) => {
-  const targetMac  = process.env.NETWORK_NAS_MAC  ??'';
-  const targetName = process.env.NETWORK_NAS_NAME ??'';
-  let statusText = await __linuxNetworkService.ReadNetworkStatus(targetName, targetMac)
-  res.send(statusText);
-});
+// app.get('/wake/status/alien', requireAuth, async (req, res) => {
+//   const targetMac  = process.env.NETWORK_ALIEN_MAC  ??'';
+//   const targetName = process.env.NETWORK_ALIEN_NAME ??'';
+//   let statusText = await __linuxNetworkService.ReadNetworkStatus(targetName, targetMac)
+//   res.send(statusText);
+// });
+
+// app.get('/wake/status/nas' , requireAuth, async (req, res) => {
+//   const targetMac  = process.env.NETWORK_NAS_MAC  ??'';
+//   const targetName = process.env.NETWORK_NAS_NAME ??'';
+//   let statusText = await __linuxNetworkService.ReadNetworkStatus(targetName, targetMac)
+//   res.send(statusText);
+// });
 
 app.get('/wake/nas', requireAuth, async (req, res) => {
   let targetMac = process.env.NETWORK_NAS_MAC  ??'';

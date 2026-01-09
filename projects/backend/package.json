@@ -9,13 +9,13 @@
   "scripts": {
     "run": "node _buildOutput/server.js",
     "test": "node --test",
-    "build": "node _build/scripts/build.js && tsc ",
+    "build:release": "node _build/scripts/build.release.js && tsc --project tsconfig.release.json",
     "clean": "node _build/scripts/clean.js",
     "Relase:Major": "npm version major --no-git-tag-version",
     "Relase:Minor": "npm version minor --no-git-tag-version",
     "Relase:Patch": "npm version patch --no-git-tag-version",
     "Run:ServerAuth": "node _buildOutput/serverAuth.js",
-    "prerun": "npm run build",
+    "prerun": "npm run build:release",
     "prebuild": "npm run clean"
   },
   "keywords": [],

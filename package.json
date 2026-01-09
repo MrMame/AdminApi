@@ -10,10 +10,10 @@
     "projects/*"
   ],
   "scripts": {
-    "build": "npm run monorepo:build",
+    "build": "npm run monorepo:build:release",
     "clean": "node _build/scripts/clean.js",
-    "monorepo:build":  "npm run monorepo:clean && npm run build -ws && npm run monorepo:bundle",
-    "monorepo:clean":  "npm run clean -ws",
+    "monorepo:build:release":  "npm run monorepo:clean && npm run build:release -ws && npm run monorepo:bundle",
+    "monorepo:clean":  "npm run clean && npm run clean -ws",
     "monorepo:bundle": "node _build/scripts/bundle.js"
   }
 }

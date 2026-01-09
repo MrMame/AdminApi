@@ -5,7 +5,7 @@
   "type": "module",
   "main": "",
   "scripts": {
-    "build": "node _build/scripts/build.js",
+    "build:release": "node _build/scripts/build.js",
     "clean": "node _build/scripts/clean.js"
   }
 }

@@ -15,7 +15,7 @@
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/_monorepo-output/backend/server.js",
-            "preLaunchTask": "npm: build",
+            "preLaunchTask": "npm: build:release",
             "cwd": "${workspaceFolder}/_monorepo-output/backend/",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
@@ -29,11 +29,11 @@
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/_monorepo-output/backend/serverAuth.js",
-            "preLaunchTask": "npm: build",
+            "preLaunchTask": "npm: build:release",
             "cwd": "${workspaceFolder}/_monorepo-output/backend/",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
-                        "env": {
+            "env": {
                 "NODE_ENV": "dev"
             }
         },
